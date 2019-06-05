@@ -5,7 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lesson1</title>
+    <script>
+        // Adresee
+        var city = "Kyiv";
+        var street = "Darnytskyi bulevard";
+        var number = "8v";
+        var fullAdress = city + ", " + street + ", " + number;
+
+        console.log(fullAdress);
+        // table adres
+        document.write('<table border="1"><tr><td>' + "місто  " + '</td><td>' + city + '</td></tr><tr><td>' + "вулиця  " + '</td><td>' + street + '</td></tr><tr><td>' + "номер будинку  " + '</td><td>' + number + '</td></tr></table>');
+        // allert
+        alert("Hello world!");
+        // comparison
+        var serverUser = "user1";
+        var userId = prompt();
+
+        console.log(serverUser == userId);
+        // fistName lastName
+        var firstName = prompt("Введіть ім'я");
+        var lastName = prompt("Введіть фамілію");
+
+        document.write("<h1>" + firstName + " " + lastName + "</h1>");
+        // hobby
+        var hobby = prompt("Введіть Ваше хобі");
+        var work = prompt("Де ви працюєте");
+        var education = prompt("Ваша освіта");
+        var rundomNumber = +prompt("Введіть будь-яке число");
+
+        document.write('<ol><li>' + hobby + '</li><li>' + work + '</li><li>' + education + '</li></ol>');
+        document.write(rundomNumber + 13);
+        document.write('<span>' + rundomNumber + 13 + '</span>');
+        rundomNumber += 13; // 
+        document.write('<span>' + rundomNumber + '</span>');
+        //dz1
+        var k;
+        var b;
+        var y1 = prompt("input y1");
+        var y2 = prompt("input y2");
+        var x1 = prompt("input x1");
+        var x2 = prompt("input x2");
+
+        k = (y1 - y2) / (x1 - x2);
+        b = y2 - k * x2;
+
+        console.log(y1);
+        console.log(y2);
+        console.log(x1);
+        console.log(x2);
+
+        if (b >= 0) {
+            console.log("y = " + k + "x" + "+" + b);
+        } else {
+            console.log("y = " + k + "x" + b);
+        }
+
+        var x3 = x1;
+
+        x1 = x2;
+        x2 = x3;
+
+        console.log(y1);
+        console.log(y2);
+        console.log(x1);
+        console.log(x2);
+
+        if (b >= 0) {
+            console.log("y = " + k + "x" + "+" + b);
+        } else {
+            console.log("y = " + k + "x" + b);
+        }
+
+        var admin;
+        var name = "Василий";
+
+        admin = name;
+
+        console.log(admin);
+
+        var firstName = prompt("Введіть ім'я");
+        var lastName = prompt("Введіть фамілію");
+        var age = prompt("Введіть Ваш вік");
+
+        console.log(firstName + " " + lastName + " " + "Ваш вік: " + age);
+
+        var answer = confirm("Ваш вік " + age + " років? ");
+
+        console.log(answer);
+
+        document.write(firstName + " " + lastName + " " + "Ваш вік: " + age);
+    </script>
 </head>
 
 <body>
