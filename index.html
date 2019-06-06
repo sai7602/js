@@ -6,6 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- 
+    1. Среди трех чисел найти среднее арифметическое. Если среди чисел есть равные, вывести сообщение "Ошибка". Числа принять от пользователя.
+
+    2. Построить прямоугольный треугольник состоящий из символа "*".
+
+    3. Определить какое из трех, введенных пользователем, чисел максимальное и вывести его на экран.
+
+    4. Дано два числа A и B где (A<B). 
+    Выведите на экран суму всех чисел расположенных в числовом промежутке от А до В. 
+    Выведите на экран все нечетные значения, расположенные в числовом промежутке от А до В.   
+    -->
+    <script>
+        // Задача 1
+        var x1 = +prompt("Input x1 ");
+        var x2 = +prompt("Input x1 ");
+        var x3 = +prompt("Input x1 ");
+        if (x1 == x2 || x1 == x3 || x2 == x3) {
+            document.write("Помилка" + "<br/>")
+        } else {
+            document.write((x1 + x2 + x3) / 3);
+        };
+
+        // Задача 2
+        var n = +prompt("Введіть величину трикутника");
+        for (var i = 0; i <= n; i++) {
+            for (var j = 0; j <= i; j++) {
+                document.writeln("\*")
+            }
+            document.write("<br/>");
+        };
+
+        // Задача 3
+        var x1 = +prompt("Input x1 ");
+        var x2 = +prompt("Input x1 ");
+        var x3 = +prompt("Input x1 ");
+        var max;
+
+        if (x1 > x2 && x1 > x3 || x1 >= x2 && x1 > x3 || x1 > x2 && x1 >= x3 || x1 == x2 && x1 == x3) {
+            max = x1;
+            document.write("Максимальне число: " + max);
+        } else if (x2 > x1 && x2 > x3 || x2 >= x1 && x2 > x3 || x2 > x1 && x2 >= x3) {
+            max = x2;
+            document.write("Максимальне число: " + max);
+        } else {
+            max = x3;
+            document.write("Максимальне число: " + max);
+        };
+        document.write("<br/>");
+
+        // Задача 4
+        var a = 10;
+        var b = 20;
+        var sum = 0;
+        var sum_even = 0;
+        var sum_odd = 0;
+        for (var i = a + 1; i < b; i++) {
+            sum = sum + i;
+            if (i % 2 == 0) {
+                sum_even = sum_even + i;
+            } else {
+                sum_odd = sum_odd + i;
+            }
+        };
+        document.write("Сума чисел проміжку: " + sum + "<br/>");
+        document.write("Сума парних чисел проміжку: " + sum_even + "<br/>");
+        document.write("Сума непарних чисел проміжку: " + sum_odd + "<br/>");
+    </script>
 </head>
 
 <body>
