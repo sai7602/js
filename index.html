@@ -6,10 +6,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        // Class Work
+        var array = [29, 30, 40];
+        var myDate = array[0];
+        console.log(myDate);
+
+        array[0] = 45;
+        myDate = array[0];
+        console.log(myDate);
+
+        var myArray = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+            [
+                [10, 11, 12], 13, 14
+            ]
+        ];
+
+        myData = myArray[2][1];
+        console.log(myData);
+
+        var myArray = [
+            ["John", 23],
+            ["cat", 2]
+        ];
+        myArray.push(["happy", "joy"]);
+        console.log(myArray[2]);
+
+        var myArray = [
+            ["John", 23],
+            ["cat", 2]
+        ];
+
+        var removedFromMyArray = myArray.pop();
+        console.log(removedFromMyArray);
+
+        var myArray = [
+            ["John", 23],
+            ["dog", 3]
+        ];
+
+        var removedFromMyArray = myArray.shift();
+        console.log(removedFromMyArray);
+        var myArray = [
+            ["John", 23],
+            ["dog", 3]
+        ];
+        console.log(myArray[0]);
+        myArray.unshift(["Paul", 35]);
+        console.log(myArray[0]);
+        myList = [
+            ["«Шоколадная плитка»", 15],
+            ["«Батон»", 13],
+            ["«Банан»", 25],
+            ["«Мінеральна вода»", 33],
+            ["«Цеглина»", 43]
+        ]
+        console.log(myList);
+        console.log(myList.length);
+        for (i = 0; i < myList.length; i++) {
+            console.log(myList[i][0]);
+        }
+    </script>
 </head>
 
 <body>
-    <div></div>
+    <script>
+        // homework
+        // Task 1 Start
+        var myHomeArray = ["test1", "test2", "test3"]
+        var myNewArray = ["new1", "new2", "new3"]
+        console.log(myHomeArray)
+        console.log("До змін: " + myHomeArray)
+
+        var changeArrayJoin = myHomeArray.join("/");
+        console.log("Після \"Join\": " + changeArrayJoin);
+
+        changeArraySplit = changeArrayJoin.split("/");
+        console.log("Після \"Split\": " + changeArraySplit);
+
+        changeArrayConcat = myHomeArray.concat(myNewArray);
+        console.log("Після \"Concat\": " + changeArrayConcat);
+
+        changeArrayReverse = changeArrayConcat.reverse();
+        console.log("Після \"Reverse\": " + changeArrayReverse);
+
+        changeArraySlice = changeArrayConcat.slice(0, 4);
+        console.log("Після \"Slice\": " + changeArraySlice);
+
+        changeArrayConcat.sort();
+        console.log("Після \"Sort\": " + changeArrayConcat);
+
+        console.log("Concat до \"Splice\": " + changeArrayConcat);
+        changeArraySplice = changeArrayConcat.splice(0, 4);
+
+        console.log("Після \"Splice\*: " + changeArraySplice);
+        console.log("Concat після \"Splice\": " + changeArrayConcat);
+
+        changeArrayPush = changeArraySplice.push(myNewArray);
+        console.log("Після \"Push\": " + changeArraySplice);
+
+        changeArrayPop = changeArraySplice.pop();
+        console.log("Після \"Pop\": " + changeArraySplice);
+        console.log("Видалений \"Pop\": " + changeArrayPop);
+
+        changeArrayUnshift = changeArraySplice.unshift(myArray);
+        console.log("Після \"Unshift\": " + changeArraySplice);
+
+        changeArrayShift = changeArraySplice.shift();
+        console.log("Після \"Shift\": " + changeArraySplice);
+        console.log("Видалений \"Shift\": " + changeArrayShift);
+
+        // Task 1 End
+
+
+        // Task 2-3 Start
+
+        var multiArray = [];
+        var size = prompt(" Введіть розмір масиву");
+        if (isNaN(size) || (size == null)) {
+            alert("Помилка ви ввели не число");
+        } else {
+            for (i = 0; i < size; i++) {
+                if (i % 2 == 0) {
+                    multiArray.push(["even", "even", "even"])
+                } else {
+                    multiArray.push(["odd", "odd", "odd"])
+                }
+            }
+            console.log(multiArray);
+            var rangeArray = multiArray.length - 1;
+            var index = prompt("Введіть позицію в масиві в діапазоні " + 0 + "..." + rangeArray);
+            if (isNaN(size)) {
+                alert("Помилка ви ввели не число");
+            } else if (0 <= index < rangeArray) {
+                var value = prompt("Введіть значення для вставки в масив");
+                multiArray.splice(index, 0, value)
+
+            } else {
+                alert("Ви ввели невірне значення позицію масиву");
+            }
+            console.log(multiArray);
+        }
+
+        // Task 2-3 End
+
+        // Task 4 Start
+
+        var cityArray = ["Kyiv", "Lviv", "Rivne"]
+        var citizenArray = ["2800000", "725000", "246000"]
+        var cityCitizenArray = [];
+        for (i = 0; i < cityArray.length; i++) {
+            cityCitizenArray.push(cityArray[i] + ' - ' + citizenArray[i])
+        }
+
+        cityCitizenJoinArray = cityCitizenArray.join(", ");
+        console.log(cityCitizenArray);
+        console.log(cityCitizenJoinArray);
+        // Task 4 End
+    </script>
 </body>
 
 </html>
