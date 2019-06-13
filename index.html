@@ -6,6 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        // Practise
+        // Task 1
+
+        function getArgument() {
+            var firstArray = ['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'];
+            var secondArray = firstArray.slice(2, 4);
+            console.log(firstArray);
+            console.log(secondArray);
+        }
+        getArgument();
+
+        // Task 2
+
+        var a = 9;
+
+        function convertFaren(a) {
+            var faren = a * 9 / 5 + 32;
+            console.log(faren);
+        }
+        convertFaren(a);
+        // Task 3
+        var b = "something";
+        var c = "";
+
+        function reflectString(b) {
+            for (i = b.length - 1; i >= 0; i--) {
+                c = c + b[i];
+            }
+            return c;
+        }
+        reflectString(b);
+        console.log(b);
+        console.log("********");
+        console.log(c);
+
+        // Task 4
+        var str = "The quick brown fox jumped over the lazy dog";
+        var strArray = [];
+        var length = Number.NEGATIVE_INFINITY;
+
+        function lengthWord(str) {
+            strArray = str.split(" ");
+            for (i = 0; i < strArray.length; i++) {
+                if (length <= strArray[i].length) {
+                    length = strArray[i].length;
+                }
+            }
+            return length;
+        }
+        lengthWord(str);
+        console.log(strArray);
+        console.log("Найдовше слово в реченні має: " + length + " символів");
+    </script>
 </head>
 
 <body>
