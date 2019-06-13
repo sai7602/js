@@ -63,7 +63,28 @@
 </head>
 
 <body>
-    <div></div>
+    <script>
+        // Додаткові завдання
+        //Task 1
+        var result;
+        var operand1 = 3;
+        var operand2 = 5;
+        var sign = "+";
+        var result = operand1 + sign + operand2;
+
+        function calculate(operand1, operand2, sign) {
+            if (isNaN(operand1) || isNaN(operand2) ||
+                sign != "-" || sign != "+" || sign != "*" || sign != "/") {} else {
+                console.log(operand1 + sign + operand2);
+                result = operand1 + sign + operand2;
+
+            }
+            return operand1 + sign + operand2
+        }
+        //calculate(operand1, operand2, "-");
+        console.log(operand1 + sign + operand2);
+        console.log(result);
+    </script>
 </body>
 
 </html>
