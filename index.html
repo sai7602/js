@@ -6,10 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        // Task 1
+        function truncateString(str, num) {
+            if (str.length >= num) {
+                str = str.slice(0, num) + "...";
+                console.log(str);
+            }
+            // Clear out that junk in your trunk
+            return str;
+        }
+
+        truncateString("A-tisket a-tasket A green and yellow basket", 8);
+        // Task 2
+        function findElement(arr, func) {
+            for (var i = 0; i < arr.length; i++) {
+                if (func(arr[i])) {
+                    return arr[i];
+                }
+            }
+            return undefined
+        }
+
+        console.log(findElement([1, 2, 3, 4], function(num) {
+            return num % 2 === 0
+        }));
+        // Task 3
+        function booWho(bool) {
+            // if (typeof bool == 'boolean') {
+            //     return bool;
+            // }
+            // return false
+            return typeof bool == 'boolean' ? true : false;
+        }
+
+        console.log(booWho(true));
+    </script>
 </head>
 
 <body>
     <div></div>
+    <script>
+        // Homework
+        //Task 1
+        var point = {
+            x: 10,
+            y: 5,
+            getCvadrant(x, y) {
+                if (x > 0 && y > 0) {
+                    console.log("Перший квадрант")
+                }
+            }
+        }
+        console.log(point.getCvadrant(3, 5));
+    </script>
 </body>
 
 </html>
