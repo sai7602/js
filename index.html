@@ -96,9 +96,9 @@
         //    Все аргументы для функции принять от пользователя.
 
         var result;
-        var operand1 = +"3"; //+prompt("Число 1");
-        var operand2 = +"4"; //+prompt("Число 2");
-        var sign = "-"; //prompt("Математичний оператор (+ - * / ** %) ");
+        var operand1 = +prompt("Число 1");
+        var operand2 = +prompt("Число 2");
+        var sign = prompt("Математичний оператор (+ - * / ** %) ");
         var result;
 
         function calculate(operand1, operand2, sign) {
@@ -126,7 +126,7 @@
                         }
                     case "**": // 2. Создать функцию, возводящую число в степень, число и сама степень вводится пользователем
                         {
-                            result = operand1 ** operand2;
+                            result = Math.pow(operand1, operand2);
                             break;
                         }
                     case "%":
@@ -206,7 +206,7 @@
         document.write("Камінь-Ножиці-Бумага: " + play(random1, random2) + "<br>");
 
         // 4. Напишите функцию, которая возвращает n-е число Фибоначчи. Для решения используйте цикл.
-        var n = 0; //+prompt("Введіть \*n\* послідовності Фібона́ччі ")
+        var n = +prompt("Введіть \*n\* послідовності Фібона́ччі ")
         var numberFib;
 
         function fibonachi() {
