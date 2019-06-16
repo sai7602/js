@@ -9,6 +9,11 @@
     <script>
         // Practise
         // Task 1
+        // 1. Напишите функцию, которая принимает массив в качестве аргумента. Используя slice (), извлеките информацию из массива аргументов и верните новый массив, содержащий элементы «warm» и «sunny».
+
+        // ['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']
+
+        // ########
 
         function getArgument() {
             var firstArray = ['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'];
@@ -20,6 +25,11 @@
 
         // Task 2
 
+        // 2. Напишите функцию подсчета градусов Фаренгейта при входящем параметре температуры в цельсиях.
+        // Алгоритм пересчета из градусов Цельсия в градусы Фаренгейта - это температура в градусах Цельсия, умноженная на 9/5 плюс 32.         
+
+        // ########
+
         var a = 9;
 
         function convertFaren(a) {
@@ -27,7 +37,17 @@
             console.log(faren);
         }
         convertFaren(a);
+
         // Task 3
+
+        // 3. Напишите функцию которая бы переворачивала предоставленную строку
+        // Возможно, вам придется превратить строку в массив, прежде чем вы можете обратить его. 
+        // Ваш результат должен быть строкой.
+        // "something"
+
+        // ########
+
+
         var b = "something";
         var c = "";
 
@@ -43,6 +63,10 @@
         console.log(c);
 
         // Task 4
+        // 4. Напишите функцию которая возвращает длину самого длинного слова в предложении. 
+        // Ваш ответ должен быть числом.
+        // "The quick brown fox jumped over the lazy dog"    
+
         var str = "The quick brown fox jumped over the lazy dog";
         var strArray = [];
         var length = Number.NEGATIVE_INFINITY;
@@ -66,24 +90,135 @@
     <script>
         // Додаткові завдання
         //Task 1
+        //     1. Создать функцию calculate(operand1, operand2, sign), где operand1 и operand2 — два числа, sign — знак арифметической операции.
+        //    Функция должна расчитывать результат операции, исходя из переданного ей знака. 
+        //    Функция должна проверять корректность введенных чисел и знака операции.
+        //    Все аргументы для функции принять от пользователя.
+
         var result;
-        var operand1 = 3;
-        var operand2 = 5;
-        var sign = "+";
-        var result = operand1 + sign + operand2;
+        var operand1 = +"3"; //+prompt("Число 1");
+        var operand2 = +"4"; //+prompt("Число 2");
+        var sign = "-"; //prompt("Математичний оператор (+ - * / ** %) ");
+        var result;
 
         function calculate(operand1, operand2, sign) {
-            if (isNaN(operand1) || isNaN(operand2) ||
-                sign != "-" || sign != "+" || sign != "*" || sign != "/") {} else {
-                console.log(operand1 + sign + operand2);
-                result = operand1 + sign + operand2;
-
+            if (isNaN(operand1) == false && isNaN(operand2) == false) {
+                switch (sign) {
+                    case "+":
+                        {
+                            result = operand1 + operand2;
+                            break;
+                        }
+                    case "-":
+                        {
+                            result = operand1 - operand2;
+                            break;
+                        }
+                    case "*":
+                        {
+                            result = operand1 * operand2;
+                            break;
+                        }
+                    case "/":
+                        {
+                            result = operand1 / operand2;
+                            break;
+                        }
+                    case "**": // 2. Создать функцию, возводящую число в степень, число и сама степень вводится пользователем
+                        {
+                            result = operand1 ** operand2;
+                            break;
+                        }
+                    case "%":
+                        {
+                            result = operand1 % operand2;
+                            break;
+                        }
+                    default:
+                        {
+                            document.write("Данного символу немає в словнику");
+                            break;
+                        };
+                }
+            } else {
+                document.write("Ви ввели не число");
             }
-            return operand1 + sign + operand2
+            return result;
         }
-        //calculate(operand1, operand2, "-");
-        console.log(operand1 + sign + operand2);
-        console.log(result);
+
+        document.write("Результат математичної операції = " + calculate(operand1, operand2, sign) + "<br>");
+
+        // 3.  Создать игру "Камень-Ножницы-Бумага".
+        //     Выбор компьютера определяется строкой:  
+        //     "var computerChoice = Math.random();
+        //     alert(computerChoice);".
+        //     Math.random() выдает произвольное число в промежутке от 0 до 1, на основании этого можно построить принцип выбора решения компьютера.
+
+        var random1 = Math.floor(Math.random() * 3);
+        var random2 = Math.floor(Math.random() * 3);
+        var randomtArray = [];
+        var result;
+
+        function play(random1, random2) {
+            randomtArray.push(random1, random2);
+            switch (randomtArray.join(",")) {
+                case "0,0": // У обох ножиці
+                case "1,1": // У обох папір
+                case "2,2": // у обох камінь
+                    {
+                        result = "Нічия";
+                        break;
+                    };
+                case "0,1":
+                    {
+                        result = "У першого гравця ножиці, у другого гравця папір. Переміг перший гравець";
+                        break;
+                    };
+                case "0,2":
+                    {
+                        result = "У першого гравця ножиці, у другого гравця камінь. Переміг другий гравець";
+                        break;
+                    };
+                case "1,2":
+                    {
+                        result = "У першого гравця папір, у другого гравця камінь. Переміг перший гравець";
+                        break;
+                    };
+                case "2,1":
+                    {
+                        result = "У першого гравця камінь, у другого гравця папір. Переміг другий гравець";
+                        break;
+                    };
+                case "2,0":
+                    {
+                        result = "У першого гравця камінь, у другого гравця ножиці. Переміг перший гравець";
+                        break;
+                    };
+                case "1,0":
+                    {
+                        result = "У першого гравця папір, у другого гравця ножиці. Переміг другий гравець";
+                        break;
+                    };
+            }
+
+            return result;
+        }
+        document.write("Камінь-Ножиці-Бумага: " + play(random1, random2) + "<br>");
+
+        // 4. Напишите функцию, которая возвращает n-е число Фибоначчи. Для решения используйте цикл.
+        var n = 0; //+prompt("Введіть \*n\* послідовності Фібона́ччі ")
+        var numberFib;
+
+        function fibonachi() {
+            if (isNaN(n) == false) {
+                numberFib = ((((1 + Math.sqrt(5)) / 2) ** n) -
+                    (((1 - Math.sqrt(5)) / 2) ** n)) / Math.sqrt(5);
+                return Math.floor(numberFib);
+            } else {
+                // console.log("Значення яке ви ввели " + n + " не є числом")
+            }
+        }
+        document.write("Число Фібоначі члену <i>n</i> = " + fibonachi(n) + "<br>");
     </script>
 </body>
 
