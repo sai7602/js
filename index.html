@@ -139,6 +139,7 @@
             console.log(multiArray);
             var rangeArray = multiArray.length - 1;
             var index = prompt("Введіть позицію в масиві в діапазоні " + 0 + "..." + rangeArray);
+
             if (isNaN(size)) {
                 alert("Помилка ви ввели не число");
             } else if (0 <= index < rangeArray) {
@@ -158,6 +159,7 @@
         var cityArray = ["Kyiv", "Lviv", "Rivne"]
         var citizenArray = ["2800000", "725000", "246000"]
         var cityCitizenArray = [];
+
         for (i = 0; i < cityArray.length; i++) {
             cityCitizenArray.push(cityArray[i] + ' - ' + citizenArray[i])
         }
