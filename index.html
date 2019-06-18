@@ -48,7 +48,6 @@
     <div></div>
     <script>
         // Homework
-        //Task 1
         //     1. Создать объект Point, содержащий два свойства: "x" и "y" — координаты точки, и метод GetQuadrant, вычисляющий,
         //    в каком квадранте в декартовой системе координат находится данная точка.
         //    Протестируйте данный объект, изменяя значения его координат, и повторно вызавая метод GetQuadrant.
@@ -132,28 +131,42 @@
                 return result;
             }
         }
-        document.write("Результат математичної операції = " + calculator.calculate(operand1, operand2, sign) + "<br>");
-        // 3. Создать массив, который будет хранить в себе информацию о сотрудниках предприятия. Каждый элемент масива — объект,
-        //    содержащий свойства: name, sName, age, occupation, и метод show, который выводит всю информацию о пользователе.
+        document.write("Результат математичної операції = " + calculator.calculate(operand1, operand2, sign) + "<br> <br>");
+        // 3. Создать массив, который будет хранить в себе информацию о сотрудниках предприятия. Каждый элемент масива — объект,содержащий свойства: name, sName, age, occupation, и метод show, который выводит всю информацию о пользователе.
         //    Реализовать заполнение массива пользователем. По окончанию заполнения — вывести информацию о сотрудниках. 
 
-        var staffFirstName = "asfdas";
-        var staffSecondName = "asfgsfhd";
-        var staffAge = 345;
-        var staffOccupation = "sdgdfhg";
+        var staffFirstName;
+        var staffSecondName;
+        var staffAge = 45;
+        var staffOccupation = "director";
         var staffArray = [];
-
         while (confirm("Ви бажаєте ввести данні співробітника?")) {
+            staffFirstName = prompt("Введіть ім'я");
+            staffSecondName = prompt("Введіть фамілію");
+            staffAge = prompt("Введіть вік");
+            staffOccupation = prompt("Введіть посаду");
 
             var staff = {
                 name: staffFirstName,
-                sName: staffSecondName,
-                age: staffAge,
-                occupation: staffOccupation,
+                sName: staffSecondName, //prompt("Введіть фамілію")
+                age: staffAge, //prompt("Введіть вік")
+                occupation: staffOccupation, //prompt("Введіть посаду")
+                show: function() {
+                    var name = "Ім'я: " + this.name + "<br>";
+                    var sName = "Фамілія: " + this.sName + "<br>";
+                    var age = "Вік: " + this.age + " років" + "<br>";
+                    var occupation = "Посада: " + this.occupation + "<br> ";
+                    return name + sName + age + occupation;
+                }
             }
             staffArray.push(staff);
         }
-        document.write("Ви закінчили роботу " + staffArray);
+
+        for (i = 0; i < staffArray.length; i++) {
+            document.write("Інформація по співробітнику номер " + (i + 1) + "<br>" + staffArray[i].show() + "<br>");
+        }
+
+        document.write("Ви закінчили введення співробітників" + "<br>");
 
         // 4. Для предыдущего задания создайте функцию, которая будет принимать в себя массив объектов-сотрудников, и каждому из объектов
         //    будет добавлять новое свойство "salary", хранящее зарплату сотрудника. 
@@ -163,10 +176,111 @@
         //        • "programmer" — 2000;
         //        • для остальных значений — 1000.
         //    После выполнения функции — вывести информацию о сотрудниках.
+        function addSalary(arg1) {
+            for (i = 0; i < arg1.length; i++) {
+                switch (arg1[i].occupation) {
+                    case "Директор":
+                        {
+                            arg1[i].salary = "3000";
+                        }
+                    case "Менеджер":
+                        {
+                            arg1[i].salary = "1500";
+                        }
+                    case "Программіст":
+                        {
+                            arg1[i].salary = "2000";
+                        }
+                    default:
+                        {
+                            arg1[i].salary = "1000";
+                        }
+                }
+
+                var name = "Ім'я: " + arg1[i].name + "<br>";
+                var sName = "Фамілія: " + arg1[i].sName + "<br>";
+                var age = "Вік: " + arg1[i].age + " років" + "<br>";
+                var occupation = "Посада: " + arg1[i].occupation + "<br>";
+                var salary = "Заробітна плата: " + arg1[i].salary + "<br>";
+                document.write("<br> Інформація по співробітнику номер " + (i + 1) + " оновлена" + "<br>");
+                document.write(name + sName + age + occupation + salary);
+            }
+            return "<br> Кінець введення заробітної плати <br>"
+
+        }
+        document.write(addSalary(staffArray));
 
         // 5. Для задания 3 создать метод, позволяющий отсортировать массив сотрудников по одному из свойств: name, sName, age, occupation, salary.
         //    Параметр для сортировки принимается от пользователя.
         //    После выполнения функции — вывести информацию о сотрудниках.
+        var key = prompt("Ведіть параметр сортування: name, sName, age, occupation, salary ");
+
+        function sortStaff(arg1) {
+            if (key == "name") {
+                for (var i = 0, tmp; i < arg1.length - 1; i++) {
+                    for (j = 0; j < arg1.length - 1; j++) {
+                        if (arg1[j].name > arg1[j + 1].name) {
+                            tmp = arg1[j];
+                            arg1[j] = arg1[j + 1];
+                            arg1[j + 1] = tmp;
+                        }
+                    }
+                }
+            } else if (key == "sName") {
+                for (var i = 0, tmp; i < arg1.length - 1; i++) {
+                    for (j = 0; j < arg1.length - 1; j++) {
+                        if (arg1[j].sName > arg1[j + 1].sName) {
+                            tmp = arg1[j];
+                            arg1[j] = arg1[j + 1];
+                            arg1[j + 1] = tmp;
+                        }
+                    }
+                }
+            } else if (key == "age") {
+                for (var i = 0, tmp; i < arg1.length - 1; i++) {
+                    for (j = 0; j < arg1.length - 1; j++) {
+                        if (arg1[j].age > arg1[j + 1].age) {
+                            tmp = arg1[j];
+                            arg1[j] = arg1[j + 1];
+                            arg1[j + 1] = tmp;
+                        }
+                    }
+                }
+            } else if (key == "occupation") {
+                for (var i = 0, tmp; i < arg1.length - 1; i++) {
+                    for (j = 0; j < arg1.length - 1; j++) {
+                        if (arg1[j].occupation > arg1[j + 1].occupation) {
+                            tmp = arg1[j];
+                            arg1[j] = arg1[j + 1];
+                            arg1[j + 1] = tmp;
+                        }
+                    }
+                }
+            } else if (key == "salary") {
+                for (var i = 0, tmp; i < arg1.length - 1; i++) {
+                    for (j = 0; j < arg1.length - 1; j++) {
+                        if (arg1[j].salary > arg1[j + 1].salary) {
+                            tmp = arg1[j];
+                            arg1[j] = arg1[j + 1];
+                            arg1[j + 1] = tmp;
+                        }
+                    }
+                }
+            } else {
+                document.write("Ви ввели неіснуючий параметр <br>")
+            }
+            for (i = 0; i < staffArray.length; i++) {
+                var name = "Ім'я: " + arg1[i].name + "<br>";
+                var sName = "Фамілія: " + arg1[i].sName + "<br>";
+                var age = "Вік: " + arg1[i].age + " років" + "<br>";
+                var occupation = "Посада: " + arg1[i].occupation + "<br>";
+                var salary = "Заробітна плата: " + arg1[i].salary + "<br>";
+                document.write("<br> Інформація по співробітнику номер " + (i + 1) + " відсортована" + "<br>");
+                document.write(name + sName + age + occupation + salary);
+            }
+            return "<br> Кінець сортування"
+        }
+        sortStaff(staffArray);
     </script>
 </body>
 
