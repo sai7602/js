@@ -138,7 +138,7 @@
         var staffFirstName;
         var staffSecondName;
         var staffAge = 45;
-        var staffOccupation = "director";
+        var staffOccupation; // = "director";
         var staffArray = [];
         while (confirm("Ви бажаєте ввести данні співробітника?")) {
             staffFirstName = prompt("Введіть ім'я");
@@ -215,60 +215,17 @@
         //    После выполнения функции — вывести информацию о сотрудниках.
         var key = prompt("Ведіть параметр сортування: name, sName, age, occupation, salary ");
 
-        function sortStaff(arg1) {
-            if (key == "name") {
-                for (var i = 0, tmp; i < arg1.length - 1; i++) {
-                    for (j = 0; j < arg1.length - 1; j++) {
-                        if (arg1[j].name > arg1[j + 1].name) {
-                            tmp = arg1[j];
-                            arg1[j] = arg1[j + 1];
-                            arg1[j + 1] = tmp;
-                        }
-                    }
-                }
-            } else if (key == "sName") {
-                for (var i = 0, tmp; i < arg1.length - 1; i++) {
-                    for (j = 0; j < arg1.length - 1; j++) {
-                        if (arg1[j].sName > arg1[j + 1].sName) {
-                            tmp = arg1[j];
-                            arg1[j] = arg1[j + 1];
-                            arg1[j + 1] = tmp;
-                        }
-                    }
-                }
-            } else if (key == "age") {
-                for (var i = 0, tmp; i < arg1.length - 1; i++) {
-                    for (j = 0; j < arg1.length - 1; j++) {
-                        if (arg1[j].age > arg1[j + 1].age) {
-                            tmp = arg1[j];
-                            arg1[j] = arg1[j + 1];
-                            arg1[j + 1] = tmp;
-                        }
-                    }
-                }
-            } else if (key == "occupation") {
-                for (var i = 0, tmp; i < arg1.length - 1; i++) {
-                    for (j = 0; j < arg1.length - 1; j++) {
-                        if (arg1[j].occupation > arg1[j + 1].occupation) {
-                            tmp = arg1[j];
-                            arg1[j] = arg1[j + 1];
-                            arg1[j + 1] = tmp;
-                        }
-                    }
-                }
-            } else if (key == "salary") {
-                for (var i = 0, tmp; i < arg1.length - 1; i++) {
-                    for (j = 0; j < arg1.length - 1; j++) {
-                        if (arg1[j].salary > arg1[j + 1].salary) {
-                            tmp = arg1[j];
-                            arg1[j] = arg1[j + 1];
-                            arg1[j + 1] = tmp;
-                        }
-                    }
-                }
+        function sortStaff(arg1, param) {
+            if (key == "name" || key == "sName" || key == "age" || key == "occupation" || key == "salary") {
+                arg1.sort(function(a, b) {
+                    if (a[param] > b[param]) return 1;
+                    if (a[param] < b[param]) return -1;
+                    else return 0;
+                })
             } else {
                 document.write("Ви ввели неіснуючий параметр <br>")
             }
+
             for (i = 0; i < staffArray.length; i++) {
                 var name = "Ім'я: " + arg1[i].name + "<br>";
                 var sName = "Фамілія: " + arg1[i].sName + "<br>";
@@ -280,7 +237,7 @@
             }
             return "<br> Кінець сортування"
         }
-        sortStaff(staffArray);
+        sortStaff(staffArray, key);
     </script>
 </body>
 
