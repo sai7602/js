@@ -256,10 +256,10 @@
         });
         console.log(averageRating);
 
-        var averageRating3 = averageRating.reduce(function(sum1, item1) {
+        var averageRating3 = (averageRating.reduce(function(sum1, item1) {
             return sum1 + item1.rate;
-        }, 0);
-        console.log(averageRating3 / averageRating.length);
+        }, 0)) / averageRating.length;
+        console.log(averageRating3);
     </script>
 
 </body>
